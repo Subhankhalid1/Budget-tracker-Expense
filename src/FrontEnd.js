@@ -5,7 +5,7 @@ import { TransactionContext } from './transContext';
 function Child() {
     let { transactions, addTransaction } = useContext(TransactionContext);
     let [newDesc, setDesc] = useState("");
-    let [newAmount, setAmount] = useState(0);
+    let [newAmount, setAmount] = useState('');
 
     
     const handleAddition = (event) => {
@@ -21,7 +21,7 @@ function Child() {
         });
         
         setDesc('');
-        setAmount(0)
+        setAmount('')
     }
 
     const getIncome = () => {
@@ -84,8 +84,9 @@ function Child() {
 
                 <br />
                 <label>
-                    Enter Amount <br />
-                    <input type="number" value={newAmount} placeholder="Amount" onChange={(ev) => setAmount(ev.target.value)} required />
+                    
+                    Enter Amount 
+                    <input type="number" value={newAmount} placeholder="(Negative -expense, Positive +income)" onChange={(ev) => setAmount(ev.target.value)} required />
                 </label>
                 <br />
                 <input className="addBtn" type="submit" value="Add Transaction" />
